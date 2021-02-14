@@ -16,7 +16,7 @@ const teamIndexPage = (props) => (
       <div className={styles.grid}>
 
         <div className={styles.card}>
-          <Image alt="Connie" alt="Connie" width={200} src="https://teamcoach.fujisuzuki.com/hosted/images/fb/071eb036ca4afd8e2db9ea3c88b5fb/Circle-CONNIE.jpg" />
+          <Image alt="Connie" alt="Connie" width={200} height={68} src="https://teamcoach.fujisuzuki.com/hosted/images/fb/071eb036ca4afd8e2db9ea3c88b5fb/Circle-CONNIE.jpg" />
           <h3>Connie</h3>
           <p>我經營微商生意多年，一直都在尋找一個源源不盡有被動收入的平台，我選擇
 �跟隨Fuji 卓越團隊系統，她的領導能力令我佩服，還有她的團隊自動吸客系統，還她的自動培訓系統，還有她的自動管理系統，都是現代網絡時代的需求，令我明白有多重要
@@ -24,7 +24,7 @@ const teamIndexPage = (props) => (
         </div>
 
         <div className={styles.card}>
-          <Image alt="LILY" alt="LILY" width={200} src="https://teamcoach.fujisuzuki.com/hosted/images/00/0328ddc3e44ebc992d81da6d7e7eba/Circle-LILY.jpg" />
+          <Image alt="LILY" alt="LILY" width={200} height={68} src="https://teamcoach.fujisuzuki.com/hosted/images/00/0328ddc3e44ebc992d81da6d7e7eba/Circle-LILY.jpg" />
           <h3>LILY</h3>
           <p>我說過全職家庭主婦14年從沒有過任何直銷或跨國電商的經驗，我跟隨Fuji Suzuki的方法，在短短兩個月做到了經理的級別，有了理想的收入，幫助了我改變我們家庭的生活質素，我有更健康財富的自由，而且學到我從來未學到在市場上可以運用的知識..."是一個主旨常常有責任的團隊導師，相信我跟隨Fuji的系統和她的指導在未來的日子讓我不需要走任何成功的冤枉路，可以輕鬆創業，帶領我們的團隊繼續向前邁進！
 非常感激上帝讓我認識Fuji導師⋯</p>
