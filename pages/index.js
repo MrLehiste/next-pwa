@@ -5,12 +5,13 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome
+           {/* to <a href="https://app.fujisuzuki.com">FujiSuzuki.com!</a> */}
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+          {/* Get started by editing{' '} */}
+          <code className={styles.code}>FujiSuzuki.com</code>
         </p>
 
         <div className={styles.grid}>
@@ -28,19 +29,11 @@ export default function Home() {
             href="https://github.com/vercel/next.js/tree/master/examples"
             className={styles.card}
           >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+            <video width="640" id="player" controls="" playsinline="" poster="https://video.fujisuzuki.com/fs.jpg">
+              <source src="https://video.fujisuzuki.com/fs.mp4" type="video/mp4" />
+            </video>
           </a>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
         </div>
       </main>
 
