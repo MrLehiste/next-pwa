@@ -5,7 +5,7 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome
+          Welcome!
            {/* to <a href="https://app.fujisuzuki.com">FujiSuzuki.com!</a> */}
         </h1>
 
@@ -15,37 +15,27 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+          <a href="/team" className={styles.card}>
+            <h3>Team  &rarr;</h3>
+            <p>經過Fuji培訓出來的企業夥伴包括有</p>
           </a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          <a href="https://go.fujisuzuki.com/contact" className={styles.card}>
+            <h3>Contact &rarr;</h3>
+            <p>跟隨Fuji Suzuki都是我的Mentor,她的提點給我一個肯定</p>
           </a>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
+          <div className={styles.card}>
             <video width="640" id="player" controls="" playsinline="" poster="https://video.fujisuzuki.com/fs.jpg">
               <source src="https://video.fujisuzuki.com/fs.mp4" type="video/mp4" />
             </video>
-          </a>
+          </div>
 
         </div>
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
+        <p>Copyright 2021 | FujiSuzuki.com | ✉️ info@fujisuzuki.com</p>
       </footer>
     </div>
   )
