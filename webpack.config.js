@@ -1,46 +1,22 @@
-const path = require('path');
-const webpack = require('webpack');
+var webpack = require('webpack');
+var path = require('path');
+var fs = require('fs');
 
-
-
-
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-
-
-
-
-/*
- * We've enabled HtmlWebpackPlugin for you! This generates a html
- * page for you when you compile webpack, which will make you start
- * developing and prototyping faster.
- *
- * https://github.com/jantimon/html-webpack-plugin
- *
- */
-
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
-
-
-
+var nodeModules = {};
+fs.readdirSync('node_modules')
+  .filter(function(x) {
+    return ['.bin'].indexOf(x) === -1;
+  })
+  .forEach(function(mod) {
+    nodeModules[mod] = 'commonjs ' + mod;
+  });
 
 module.exports = {
-  mode: 'development',
+  entry: './src/index.js',
   target: 'node',
-
-  plugins: [new webpack.ProgressPlugin(), new HtmlWebpackPlugin({
-            template: 'index.html'
-          }), new WorkboxWebpackPlugin.GenerateSW({
-          swDest: 'sw.js',
-          clientsClaim: true,
-          skipWaiting: false,
-        })],
-
-  module: {
-    rules: []
+  output: {
+    path: path.join(__dirname, 'build'),
+    filename: 'backend.js'
   },
-
-  devServer: {
-    open: true,
-    host: 'localhost'
-  }
+  externals: nodeModules
 }
