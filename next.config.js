@@ -8,6 +8,6 @@ module.exports = withPWA({
     runtimeCaching,
   },
   images: {
-    domains: ['teamcoach.fujisuzuki.com'],
+    domains: ['media.fujisuzuki.com', 'teamcoach.fujisuzuki.com'],
   },
 })
