@@ -81,7 +81,7 @@ if (!self.define) {
     });
   };
 }
-define("./sw.js",['./workbox-9c2a1149'], function (workbox) { 'use strict';
+define("./sw.js",['./workbox-5b2c88fa'], function (workbox) { 'use strict';
 
   /**
   * Welcome to your Workbox-powered service worker!
@@ -95,83 +95,24 @@ define("./sw.js",['./workbox-9c2a1149'], function (workbox) { 'use strict';
   * See https://goo.gl/2aRDsh
   */
 
-  importScripts();
-  workbox.skipWaiting();
+  self.addEventListener('message', event => {
+    if (event.data && event.data.type === 'SKIP_WAITING') {
+      self.skipWaiting();
+    }
+  });
   workbox.clientsClaim();
-  workbox.registerRoute("/", new workbox.NetworkFirst({
-    "cacheName": "start-url",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 1,
-      maxAgeSeconds: 86400,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/^https:\/\/fonts\.(?:googleapis|gstatic)\.com\/.*/i, new workbox.CacheFirst({
-    "cacheName": "google-fonts",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 4,
-      maxAgeSeconds: 31536000,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/\.(?:eot|otf|ttc|ttf|woff|woff2|font.css)$/i, new workbox.StaleWhileRevalidate({
-    "cacheName": "static-font-assets",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 4,
-      maxAgeSeconds: 604800,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i, new workbox.StaleWhileRevalidate({
-    "cacheName": "static-image-assets",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 64,
-      maxAgeSeconds: 86400,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/\.(?:js)$/i, new workbox.StaleWhileRevalidate({
-    "cacheName": "static-js-assets",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 32,
-      maxAgeSeconds: 86400,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/\.(?:css|less)$/i, new workbox.StaleWhileRevalidate({
-    "cacheName": "static-style-assets",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 32,
-      maxAgeSeconds: 86400,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/\.(?:json|xml|csv)$/i, new workbox.NetworkFirst({
-    "cacheName": "static-data-assets",
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 32,
-      maxAgeSeconds: 86400,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/\/api\/.*$/i, new workbox.NetworkFirst({
-    "cacheName": "apis",
-    "networkTimeoutSeconds": 10,
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 16,
-      maxAgeSeconds: 86400,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
-  workbox.registerRoute(/.*/i, new workbox.NetworkFirst({
-    "cacheName": "others",
-    "networkTimeoutSeconds": 10,
-    plugins: [new workbox.ExpirationPlugin({
-      maxEntries: 32,
-      maxAgeSeconds: 86400,
-      purgeOnQuotaError: true
-    })]
-  }), 'GET');
+  /**
+   * The precacheAndRoute() method efficiently caches and responds to
+   * requests for URLs in the manifest.
+   * See https://goo.gl/S9QRab
+   */
+
+  workbox.precacheAndRoute([{
+    "url": "index.html",
+    "revision": "c05c7003f076958ce715fa64056de58b"
+  }, {
+    "url": "main.js",
+    "revision": "3949cf3164da26e88b120aceb652e565"
+  }], {});
 
 });
-//# sourceMappingURL=sw.js.map
